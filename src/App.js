@@ -4,12 +4,17 @@ import "./App.css";
 export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="container">
+      <div className="container">
+        <header className="App-header">
           <h1>Dictionary</h1>
+        </header>
+        <main>
           <Dictionary />
-        </div>
-      </header>
+        </main>
+        <footer className="text-center pt-4">
+          <small>Coded by Erin Wilson and opened-soured on GitHub</small>
+        </footer>
+      </div>
     </div>
   );
-};
+}

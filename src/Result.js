@@ -5,18 +5,18 @@ export default function Result(props) {
   if (props.result) {
     return (
       <div className="Result">
-
         <h2>{props.result.word}</h2>
 
         {props.result.meanings.map(function (meaning, index) {
           return (
             <div key={index}>
-              <div>{meaning.partOfSpeech}</div>
-              <div>{meaning.definition}</div>
+              <h5>{meaning.partOfSpeech}</h5>
+              <p>
+                {meaning.definition}
+              </p>
             </div>
           );
         })}
-
       </div>
     );
   } else {
