@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Result from "./Result";
 import "./Dictionary.css";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
+  let [result, setResult] = useState(null);
 
   function handleResponse(response) {
     console.log(response.data);
+    setResult(response.data);
   }
 
-  function Search(event) {
+  function search(event) {
     event.preventDefault();
 
     //documentation: https://www.shecodes.io/learn/apis/dictionary
@@ -24,10 +27,11 @@ export default function Dictionary() {
 
   return (
     <div className="Dictionary">
-      <form onSubmit={Search}>
+      <form onSubmit={search}>
         <input type="search" onChange={handleChange} className="search-input" />
         <input type="submit" value="Search" />
       </form>
+        <Result result={result} />
     </div>
   );
 }
