@@ -3,34 +3,59 @@ import axios from "axios";
 import Result from "./Result";
 import "./Dictionary.css";
 
-export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+  let [keyword, setKeyword] = useState(props.defaultWord);
   let [result, setResult] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
-    console.log(response.data);
     setResult(response.data);
   }
 
-  function search(event) {
-    event.preventDefault();
-
+  function search(){
     //documentation: https://www.shecodes.io/learn/apis/dictionary
     let key = "f37daf9e84tf92dob02174b7ea4039ad";
     let api = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${key}`;
     axios.get(api).then(handleResponse);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+
+  }
+
   function handleChange(event) {
     setKeyword(event.target.value);
   }
 
-  return (
+  function load (){
+    setLoaded(true);
+    search();
+  }
+
+  if (loaded) {
+    return (
     <div className="Dictionary">
-      <form onSubmit={search}>
-        <input type="search" onChange={handleChange} className="search-input" />
-      </form>
-        <Result result={result} />
+      <section>
+        <form onSubmit={handleSubmit}>
+          <label>What word do you want to look up?</label>
+          <input
+            type="search"
+            placeholder="Search for a word"
+            value="sunset"
+            onChange={handleChange}
+            className="search-input"
+          />
+        </form>
+      </section>
+      <Result result={result} />
     </div>
   );
+  } else {
+    load();
+    return "Loading";
+  }
+
+  
 }

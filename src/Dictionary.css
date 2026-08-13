@@ -2,4 +2,36 @@
   margin-top: 30px;
 }
 
+.Dictionary section {
+  max-width: 800px;
+  background-color: #ffffffec;
+  padding: 40px;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 14px rgb(222, 211, 196);
+}
 
+.Dictionary label {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 29px;
+  margin-bottom: 20px;
+  color: #4c4f6d;
+}
+
+.Dictionary .search-input {
+  display: block;
+  height: 64px;
+  color: #666;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 22px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.search-input:focus {
+  border-color: #98a1bc;
+}
