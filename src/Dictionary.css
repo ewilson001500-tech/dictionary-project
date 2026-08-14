@@ -35,3 +35,9 @@
 .search-input:focus {
   border-color: #98a1bc;
 }
+
+.Dictionary small{
+  color: #4c4f6d;
+  opacity: 80%;
+  padding-left: 5px;
+}

@@ -4,7 +4,6 @@ import Synonyms from "./Synonyms";
 import "./Result.css";
 
 export default function Result(props) {
-  console.log(props);
   if (props.result) {
     return (
       <div className="Result">
