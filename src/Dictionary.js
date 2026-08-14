@@ -24,6 +24,7 @@ export default function Dictionary(props) {
     let api = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${key}`;
     axios.get(api).then(handleResponse);
 
+    //documentation: https://www.shecodes.io/learn/apis/images
     let photoKey = "f37daf9e84tf92dob02174b7ea4039ad";
     let photoApi = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${photoKey}`;
     axios.get(photoApi).then(handlePhotoResponse);
@@ -52,6 +53,7 @@ export default function Dictionary(props) {
             <input
               type="search"
               placeholder="Search for a word"
+              defaultValue={props.defaultWord}
               onChange={handleChange}
               className="search-input"
             />
@@ -59,7 +61,7 @@ export default function Dictionary(props) {
           <small>i.e. pairs, wine, yoga, coding</small>
         </section>
         <Result result={result} />
-        <Photos photos={photo}/>
+        <Photos photos={photo} />
       </div>
     );
   } else {
